@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from localsocket import LocalSocket
 
-#test
+#test 2
 def localSocketConnectionOpen():
     print('Connection Open')
 

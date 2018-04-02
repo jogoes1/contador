@@ -1,12 +1,17 @@
 #!/usr/bin/python
 from localsocket import LocalSocket
 
+contador=0
+
 #test 2
 def localSocketConnectionOpen():
     print('Connection Open')
 
 def localSocketDataRead(data):
     print('data [%s]' % data)
+    contador=contador+1
+    print('data [%s]' % data)
+
 
 def localSocketConnectionClosed():
     print('Connection Closed')

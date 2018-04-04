@@ -79,8 +79,10 @@ class LocalSocket(object):
             self.status = False
             self.connOpen = False
 
+	    print "connSocket"
             if self.__connSocket is not None:
                 try:
+		    print "connSocket shutdown + close"
                     self.__connSocket.shutdown(socket.SHUT_RDWR)
                     self.__connSocket.close()
                 except socket.error, v:
@@ -88,13 +90,15 @@ class LocalSocket(object):
 
             if self.__listenSocket is not None:
                 try:
+		    print "listenSocket shutdown + close"
                     self.__listenSocket.shutdown(socket.SHUT_RDWR)
                     self.__listenSocket.close()
                 except socket.error, v:
                     print('Error closing Socket Port, ' + v.strerror)
 
-            if self.__socketThread.isAlive():
-                self.__socketThread.join()
+#            if self.__socketThread.isAlive():
+#		print "socketThread.join()"
+#                self.__socketThread.join()
 
     def _listen_thread(self):
 

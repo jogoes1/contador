@@ -35,7 +35,7 @@ def localSocketDataRead(data):
         flagReadInitialTime=False
         print "READ INITIAL TIMER"
         initialTime=datetime.now()
-       # __localSocket.writeData(data)
+   # __localSocket.writeData(data)
 
 #    __localSocket.writeData(data)
 #    print "número de bytes leídos= ",len(data)
@@ -47,7 +47,10 @@ def localSocketDataRead(data):
     #Finalizamos conexión al recibir una E
     if data.count("E") == 1:
 
-        #recThroughput=__contador/(str(__tiempoRecepcion)[20:0])
+       
+	time.sleep(1) 
+        __localSocket.writeData("B")
+	#recThroughput=__contador/(str(__tiempoRecepcion)[20:0])
 	flagReadInitialTime=True
 	endingTime=datetime.now()
 	__tiempoRecepcion=endingTime-initialTime
@@ -60,6 +63,13 @@ def localSocketDataRead(data):
 	print "Reset Contador bytes"
 	print "//////////////////////////////////////////////////////////"
         __contador=0
+
+
+
+	print "///////////////////////INICIO DOWNLOAD TEST//////////////"
+        __localSocket.writeData(totalData)
+        print "//////////////////////FIN DOWNLOAD TEST//////////////////"
+
         print "Cerrar socket" 
         __localSocket.stop()
 	

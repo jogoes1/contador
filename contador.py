@@ -47,13 +47,7 @@ def localSocketDataRead(data):
     # Finalizamos conexión al recibir una E
     if data.count("E") == 1:
 
-        print "Fin de recepción de datos"
-        time.sleep(1)
-        print "Envío comando de envío datos S==>"
-        __localSocket.writeData("B")
-        time.sleep(2)
-        print "Envío de datos"
-        __localSocket.writeData(totalData)
+
         # recThroughput=__contador/(str(__tiempoRecepcion)[20:0])
         flagReadInitialTime = True
         endingTime = datetime.now()
@@ -68,9 +62,13 @@ def localSocketDataRead(data):
         print "//////////////////////////////////////////////////////////"
         __contador = 0
 
-        print "///////////////////////INICIO DOWNLOAD TEST//////////////"
+        print "Fin de recepción de datos"
+        time.sleep(1)
+        print "Envío comando de envío datos S==>C"
+        __localSocket.writeData("B")
+        time.sleep(2)
+        print "Envío de datos"
         __localSocket.writeData(totalData)
-        print "//////////////////////FIN DOWNLOAD TEST//////////////////"
 
         print "Cerrar socket"
         __localSocket.stop()
